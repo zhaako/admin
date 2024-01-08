@@ -64,58 +64,104 @@
         transform: translateY(100%);
       }
     }
-    /* Стиль для всей таблицы */
-    table.table {
+
+    form {
       position: relative;
+      z-index: 9999;
+    }
+    /* Style the navigation bar */
+    .navbar {
+      position: fixed;
       z-index: 3;
+      top: 0;
       width: 100%;
-      border-collapse: collapse;
+      background-color: #000;
+      overflow: hidden;
+    }
+
+    /* Style the navigation bar links */
+    .navbar a {
+      float: left;
+      font-size: 16px;
+      color: #fff;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    /* Change the color of links on hover */
+    .navbar a:hover {
+      background-color: #0f0;
+      color: #222;
+    }
+    .search-input {
       background: #222;
-      color: #fff;
-      border: 2px solid #0f0; /* Зеленая граница ячеек */
-    }
-
-    /* Стиль для заголовков таблицы */
-    table.table th {
-      background-color: #35332C;
-      color: #fff;
+      border: none;
       padding: 10px;
-      border: 1px solid #0f0; /* Зеленая граница ячеек */
-    }
-
-    /* Стиль для ячеек таблицы */
-    table.table td {
-      background-color: #333; /* Зеленый цвет для фона ячеек */
       color: #fff;
-      padding: 10px;
-      border: 1px solid #0f0; /* Зеленая граница ячеек */
+      font-weight: 500;
+      font-size: 16px;
+      border-radius: 4px;
     }
-
-    /* Добавление отступа для всей таблицы */
-    .container .row {
-      margin-top: 20px;
+    .search-input {
+      margin-left: auto;
+      margin-right: 16px;
+    }
+    .custom-width {
+      width: 100%; /* Adjust the width as needed */
+    }
+    label.col-form-label {
+      color: #fff; /* Add the desired text color */
+    }
+    .form-container {
+      background: #222; /* Add the desired background color */
+      z-index: 9999;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      max-width: 600px; /* Adjust the max-width as needed */
+      width: 100%;
     }
   </style>
 </head>
 <body>
 <section> <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+  <div class="navbar">
+    <a th:href="@{'/home'}" th:text="#{label.home}"></a>
+    <a th:href="@{'/shop'}" th:text="#{label.product}"></a>
+    <a th:href="@{'/signIn'}" th:text="#{label.signIn}"></a>
+    <a th:href="@{'/'}" th:text="#{label.signUp}"></a>
+    <a href="?lng=ru">RUS</a>
+    <a href="?lng=en">ENG</a>
+    <input class="search-input" type="text" th:placeholder="#{label.search}" />
+  </div>
 </section>
-<form th:action="@{'/addItem'}" method="post">
-  <div class="container">
-    <div class="row mt-5">
-      <div class="col-12">
-        <label th:text="#{label.name}"></label>
-        <input type="text" name = "item_name"> <i th:text = "#{label.name}"></i>
-        <label th:text="#{label.price}"></label>
-        <input type="text" required name = "item_price" value="0"> <i th:text = "#{label.price}"></i>
-        <label th:text="#{label.amount}"></label>
-        <input type="text" required name = "item_amount" value="0"> <i th:text = "0"></i>
-
-
-
-      </div>
+<div class="form-container">
+  <div class="row mt-5">
+    <div class="col-md-6 offset-md-3">
+      <form th:action="@{'/addItem'}" method="post">
+        <div class="form-group">
+          <label class="col-form-label" th:text="#{label.name}"> </label>
+          <input type="text" class="form-control custom-width" name="item_name">
+        </div>
+        <div class="form-group">
+          <label class="col-form-label" th:text="#{label.price}"> </label>
+          <input type="number" class="form-control custom-width" name="item_price" value="0" max="1000000" min="0">
+        </div>
+        <div class="form-group">
+          <label class="col-form-label" th:text="#{label.amount}"> </label>
+          <input type="number" class="form-control custom-width" name="item_amount" value="0" max="1000000" min="0">
+        </div>
+        <div class="form-group">
+          <label class="col-form-label" th:text="#{label.info}"> </label>
+          <input type="text" class="form-control custom-width" name="item_info">
+        </div>
+        <div class="form-group">
+          <button class="btn btn-success" th:text="#{button.add}"> </button>
+        </div>
+      </form>
     </div>
   </div>
-</form>
+</div>
 </body>
 </html>

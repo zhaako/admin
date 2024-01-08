@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
  <head> 
 
@@ -203,33 +203,33 @@
     <div class="content">
 
      <h2 th:text = "#{label.signUp}"></h2>
-     <form th:action="@{'/addPerson'}" method="post">
+     <form th:action="@{'/check'}" method="post">
 
-     <div class="form">
+      <div class="form">
 
-      <div class="inputBox">
+       <div class="inputBox">
 
-       <input type="text" required name = "person_name"> <i th:text = "#{input.username}"></i>
+        <input type="text" required name = "person_name"> <i th:text = "#{input.username}"></i>
+
+       </div>
+
+       <div class="inputBox">
+
+        <input type="password" required name = "person_password"> <i th:text = "#{input.password}"></i>
+
+       </div>
+
+       <div class="links"> <a href="#" th:text="#{label.forgot}"></a> <a th:href="@{'/signIn'}" th:text="#{label.signIn}"></a>
+
+       </div>
+
+       <div class="inputBox">
+
+        <input type="submit" th:text="#{button.add}">
+
+       </div>
 
       </div>
-
-      <div class="inputBox">
-
-       <input type="password" required name = "person_password"> <i th:text = "#{input.password}"></i>
-
-      </div>
-
-      <div class="links"> <a href="#" th:text="#{label.forgot}"></a> <a th:href="@{'signIn'}" th:text="#{label.signIn}"></a>
-
-      </div>
-
-      <div class="inputBox">
-
-       <input type="submit" th:text="#{button.add}">
-
-      </div>
-
-     </div>
      </form>
 
     </div>

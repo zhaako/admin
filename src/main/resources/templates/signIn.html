@@ -189,6 +189,35 @@
     height: calc(20vw - 2px);
    }
   }
+  section .signin .content .form select {
+   width: 100%;
+   padding: 15px 10px 7px;
+   border: none;
+   outline: none;
+   background: #333;
+   border-radius: 4px;
+   color: #fff;
+   font-weight: 500;
+   font-size: 1em;
+   appearance: none;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   cursor: pointer;
+  }
+
+  section .signin .content .form select:focus {
+   border: 2px solid #0f0;
+  }
+  section .signin .content .form label {
+   color: #0f0;
+   font-size: 1em;
+   margin-bottom: 5px;
+  }
+
+  /* Optional: Add some margin to the top of the label for better spacing */
+  section .signin .content .form label {
+   margin-top: 10px;
+  }
  </style>
 
 
@@ -216,16 +245,24 @@
      <div class="inputBox">
 
       <input type="password" required name = "person_password"> <i th:text = "#{input.password}"></i>
+      <div>
+       <label>gender</label>
+       <select class="form-control" name = "gender_id">
+        <option th:each="cnt : ${genders}" th:text="${cnt.name}" th:value="${cnt.id}">
+        </option>
+       </select>
+      </div>
 
      </div>
 
-     <div class="links"> <a href="#" th:text="#{label.forgot}"></a> <a th:href="@{'/'}" th:text="#{label.signUp}"></a>
+     <div class="links"> <a th:href="@{'/login'}" th:text="#{label.signUp}"></a>
 
      </div>
+
 
      <div class="inputBox">
 
-      <input type="submit" th:text="#{button.add}">
+      <input type="submit" th:value="#{button.send}">
 
      </div>
 
@@ -236,7 +273,7 @@
 
  </div>
 
-</section> <!-- partial -->
+</section>
 
 </body>
 

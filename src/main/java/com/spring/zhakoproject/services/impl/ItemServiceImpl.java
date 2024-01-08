@@ -1,6 +1,8 @@
 package com.spring.zhakoproject.services.impl;
 
+import com.spring.zhakoproject.entities.Categories;
 import com.spring.zhakoproject.entities.Items;
+import com.spring.zhakoproject.repositories.CategoryRepo;
 import com.spring.zhakoproject.repositories.ItemRepo;
 import com.spring.zhakoproject.services.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,9 @@ import java.util.List;
 public class ItemServiceImpl implements ItemService {
     @Autowired
     private ItemRepo itemRepo;
+
+    @Autowired
+    private CategoryRepo categoryRepo;
 
     @Override
     public Items addItem(Items item) {
@@ -35,5 +40,25 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public Items saveItem(Items item) {
         return itemRepo.save(item);
+    }
+
+    @Override
+    public List<Categories> getAllCategories() {
+        return categoryRepo.findAll();
+    }
+
+    @Override
+    public Categories getCategory(Long id) {
+        return categoryRepo.getOne(id);
+    }
+
+    @Override
+    public Categories saveCategory(Categories category) {
+        return categoryRepo.save(category);
+    }
+
+    @Override
+    public Categories addCategory(Categories category) {
+        return categoryRepo.save(category);
     }
 }
