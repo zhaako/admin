@@ -117,7 +117,9 @@
         <thead>
         <tr>
           <th>ID</th>
-          <th th:text="#{label.name}"></th>
+          <th th:text="#{input.username}"></th>
+          <th th:text="#{input.lastname}"></th>
+          <th th:text="#{input.firstname}"></th>
           <th th:text="#{input.password}"></th>
           <th th:text="#{input.gender}"></th>
         </tr>
@@ -125,7 +127,9 @@
         <tbody>
         <tr th:each="it : ${users}">
           <td th:text="${it.id}"> </td>
-          <td th:text="${it.name}"> </td>
+          <td th:text="${it.login}"> </td>
+          <td th:text="${it.lastname}"> </td>
+          <td th:text="${it.firstname}"> </td>
           <td th:text="${it.password}"></td>
           <td th:text="${it.gender!=null?it.gender.name:'-----'}"></td>
         </tr>

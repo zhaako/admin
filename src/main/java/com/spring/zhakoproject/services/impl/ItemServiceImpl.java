@@ -43,6 +43,22 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
+    public List<Items> getAllOrdItem() {
+        return itemRepo.findAllByAmountGreaterThanOrderByPriceAsc(0);
+    }
+
+    @Override
+    public List<Items> saveAllItem(List<Items> items) {
+        return itemRepo.saveAll(items);
+    }
+
+    @Override
+    public List<Items> finding(String text) {
+        return itemRepo.findByNameLike(text);
+    }
+
+
+    @Override
     public List<Categories> getAllCategories() {
         return categoryRepo.findAll();
     }
@@ -60,5 +76,10 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public Categories addCategory(Categories category) {
         return categoryRepo.save(category);
+    }
+
+    @Override
+    public void deleteCategory(Categories category) {
+        categoryRepo.delete(category);
     }
 }

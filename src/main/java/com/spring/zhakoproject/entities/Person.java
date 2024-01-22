@@ -15,12 +15,17 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
-    @Column(name = "name", length = 200)
-    private String name;
+    @Column(name = "lastname", length = 200)
+    private String lastname;
+    @Column(name = "firstname", length = 200)
+    private String firstname;
+    @Column(name = "login", length = 200)
+    private String login;
     @Column(name = "password")
     private String password;
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Gender gender;
+
 }
 

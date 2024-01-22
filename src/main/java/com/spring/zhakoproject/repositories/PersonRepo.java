@@ -8,6 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 @Transactional
 public interface PersonRepo extends JpaRepository<Person, Long> {
-    Person findByName(String name);
+    Person findByLogin(String login);
     Person findByPassword(String password);
 }

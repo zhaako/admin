@@ -8,10 +8,10 @@ import java.util.List;
 public interface PersonService {
     Person addPerson(Person person);
     List<Person> getAllPersons();
-    Person getPerson(String name);
+    Person getPerson(Long id);
     Person getOnePerson(Long id);
 
-    boolean doesPersonExist(String name, String password);
+    boolean doesPersonExist(String login, String password);
 
     void deletePerson(Person person);
     Person saveItem(Person person);

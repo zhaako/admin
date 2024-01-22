@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RequiredArgsConstructor
@@ -61,12 +63,20 @@ public class HomeController {
         model.addAttribute("items", items);
         return "shop";
     }
+    @GetMapping("/sort")
+    public String sort(Model model){
+        List<Items> items = itemService.getAllOrdItem();
+        model.addAttribute("items", items);
+        return "sortedAl";
+    }
+
+
 
     @PostMapping("/check")
-    public String check(@RequestParam(name = "person_name", defaultValue = "who") String name,
+    public String check(@RequestParam(name = "person_login", defaultValue = "") String login,
                         @RequestParam(name = "person_password", defaultValue = "") String password){
 
-        if (personService.doesPersonExist(name, password)) {
+        if (personService.doesPersonExist(login, password)) {
             return "redirect:/home";
         } else {
             return "redirect:/";
@@ -86,7 +96,7 @@ public class HomeController {
         items.setInfo(info);
 
         itemService.addItem(items);
-        return "redirect:/";
+        return "redirect:/home";
     }
     @GetMapping("/details/{idshka}")
     public String details(Model model, @PathVariable(name="idshka") Long id){
@@ -101,12 +111,16 @@ public class HomeController {
     @PostMapping("/addPerson")
     public String addPerson(@RequestParam(name = "id", defaultValue = "0") Long id,
                             @RequestParam(name = "gender_id", defaultValue = "0") Long gender_id,
-                          @RequestParam(name = "person_name", defaultValue = "who") String name,
-                          @RequestParam(name = "person_password", defaultValue = "") String password){
+                            @RequestParam(name = "person_lastname", defaultValue = "who") String lastname,
+                            @RequestParam(name = "person_firstname", defaultValue = "who") String firstname,
+                            @RequestParam(name = "person_login", defaultValue = "who") String login,
+                            @RequestParam(name = "person_password", defaultValue = "") String password){
         Gender g = personService.getGender(gender_id);
         if(g != null){
             Person person = new Person();
-            person.setName(name);
+            person.setLastname(lastname);
+            person.setFirstname(firstname);
+            person.setLogin(login);
             person.setPassword(password);
             person.setGender(g);
             personService.addPerson(person);
@@ -124,6 +138,21 @@ public class HomeController {
         return "redirect:/shop";
     }
 
+    @PostMapping(value = "/reassigncategory")
+    public String reAssignCategory(@RequestParam(name = "item_id") Long id,
+                                   @RequestParam(name = "category_id") Long categoryId){
+        Categories cat = itemService.getCategory(categoryId);
+        if(cat != null){
+            Items item = itemService.getItem(id);
+            if(item!=null){
+                List<Categories> categories = item.getCategories();
+                categories.remove(cat);
+                itemService.saveItem(item);
+            }
+        }
+        return "redirect:/details/" + id;
+    }
+
     @PostMapping(value = "/assigncategory")
     public String assignCategory(@RequestParam(name = "item_id") Long id,
                                  @RequestParam(name = "category_id") Long categoryId){
@@ -136,7 +165,6 @@ public class HomeController {
                     categories = new ArrayList<>();
                 }
                 categories.add(cat);
-
                 itemService.saveItem(item);
 
                 return "redirect:/details/" + id;
@@ -144,5 +172,10 @@ public class HomeController {
         }
         return "redirect:/";
     }
-
+    @PostMapping(value = "order")
+    public String order(@RequestParam(name = "order") List<Items> item){
+        List<Items> items = itemService.getAllOrdItem();
+        itemService.saveAllItem(items);
+        return "redirect:/shop";
+    }
 }

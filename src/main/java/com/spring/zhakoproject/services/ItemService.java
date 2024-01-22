@@ -14,9 +14,16 @@ public interface ItemService {
     void deleteItem(Items item);
     Items saveItem(Items item);
 
+    List<Items> getAllOrdItem();
+    List<Items> saveAllItem(List<Items> items);
+
+
+    List<Items> finding(String text);
+
+
     List<Categories> getAllCategories();
     Categories getCategory(Long id);
     Categories saveCategory(Categories category);
     Categories addCategory(Categories category);
-
+    void deleteCategory(Categories category);
 }

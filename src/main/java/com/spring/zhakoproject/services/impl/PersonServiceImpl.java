@@ -31,8 +31,8 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public Person getPerson(String name) {
-        return personRepo.findByName(name);
+    public Person getPerson(Long id) {
+        return personRepo.getOne(id);
     }
 
     @Override
@@ -41,8 +41,8 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public boolean doesPersonExist(String name, String password) {
-        Person person = personRepo.findByName(name);
+    public boolean doesPersonExist(String login, String password) {
+        Person person = personRepo.findByLogin(login);
         return person != null && person.getPassword().equals(password);
     }
 
