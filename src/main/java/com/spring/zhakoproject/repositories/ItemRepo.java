@@ -12,6 +12,5 @@ import java.util.List;
 public interface ItemRepo extends JpaRepository<Items,Long>{
     List<Items> findAllByAmountGreaterThanOrderByPriceDesc(int amount);
     List<Items> findAllByAmountGreaterThanOrderByPriceAsc(int amount);
-
     List<Items> findByNameLike(String text);
 }

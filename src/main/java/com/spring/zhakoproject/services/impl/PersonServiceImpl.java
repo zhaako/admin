@@ -30,6 +30,7 @@ public class PersonServiceImpl implements PersonService {
         return personRepo.findAll();
     }
 
+
     @Override
     public Person getPerson(Long id) {
         return personRepo.getOne(id);
