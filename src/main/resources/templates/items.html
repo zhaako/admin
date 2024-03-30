@@ -14,7 +14,7 @@
         <input type="number" required name="item_price"><i>Price</i>
     </div>
     <div class="inputBox">
-        <input type="submit"><i>ADD</i>
+        <input type="submit">
     </div>
 </form>
 <form>
@@ -23,11 +23,13 @@
         <td>ID</td>
         <td>Name</td>
         <td>Price</td>
+        <td>Details</td>
     </tr>
     <tr th:each="it : ${items}">
         <td th:text="${it.id}"></td>
         <td th:text="${it.name}"></td>
         <td th:text="${it.price}"></td>
+        <td><a th:href="@{'/details/' + ${it.id}}" class="btn btn-info btn-sm">details</a></td>
     </tr>
 </table>
 </form>
